@@ -1,0 +1,316 @@
+\begin{thebibliography}{10}
+
+\bibitem{Ambati20071233}
+V.R. Ambati and O.~Bokhove.
+\newblock Space–time discontinuous galerkin discretization of rotating
+  shallow water equations.
+\newblock {\em Journal of Computational Physics}, 225(2):1233 -- 1261, 2007.
+
+\bibitem{Ambati2007452}
+V.R. Ambati and O.~Bokhove.
+\newblock Space–time discontinuous galerkin finite element method for shallow
+  water flows.
+\newblock {\em Journal of Computational and Applied Mathematics}, 204(2):452 --
+  462, 2007.
+\newblock Special Issue: The Seventh International Conference on Mathematical
+  and Numerical Aspects of Waves (WAVES’05).
+
+\bibitem{audusse}
+E.~Audusse, F.~Bouchut, M.O. Bristeau, R.~Klein, and B.~Perthame.
+\newblock {A Fast and Stable Well-Balanced Scheme with Hydrostatic
+  Reconstruction for Shallow Water Flows}.
+\newblock {\em SIAM Journal on Scientific Computing}, 25(6):2050--2065, January
+  2004.
+
+\bibitem{Audusse2005}
+Emmanuel Audusse and Marie-Odile Bristeau.
+\newblock {A well-balanced positivity preserving “second-order” scheme for
+  shallow water flows on unstructured meshes}.
+\newblock {\em Journal of Computational Physics}, 206(1):311--333, June 2005.
+
+\bibitem{Beisiegel2015}
+N.~Beisiegel and J.~Behrens.
+\newblock Quasi-nodal third-order bernstein polynomials in a discontinuous
+  galerkin model for flooding and drying.
+\newblock {\em Environmental Earth Sciences}, 74(11):7275--7284, 2015.
+
+\bibitem{ref1}
+Onno Bokhove.
+\newblock Flooding and drying in discontinuous galerkin finite-element
+  discretizations of shallow-water equations. part 1: One dimension.
+\newblock {\em Journal of Scientific Computing}, 22(1):47--82.
+
+\bibitem{Bollermann2013}
+Andreas Bollermann, Guoxian Chen, Alexander Kurganov, and Sebastian Noelle.
+\newblock {A well-balanced reconstruction of Wet/Dry fronts for the shallow
+  water equations}.
+\newblock {\em Journal of Scientific Computing}, 56:267--290, 2013.
+
+\bibitem{bublik2011}
+O.~Bublík and A.~Vimmr, J.and~Jonášová.
+\newblock A local time step discontinuous galerkin finite element method for
+  the solution of euler equations on unstructured meshes.
+\newblock {\em 27th conference with international participation Computational
+  Mechanics 2011}, pages 1--2, 2011.
+
+\bibitem{Bublik2015329}
+Ondřej Bublík, Jan Vimmr, and Alena Jonášová.
+\newblock Comparison of discontinuous galerkin time integration schemes for the
+  solution of flow problems with deformable domains.
+\newblock {\em Applied Mathematics and Computation}, 267:329 -- 340, 2015.
+\newblock The Fourth European Seminar on Computing (ESCO 2014).
+
+\bibitem{cotoJe}
+S.~Bunya, E.J. Kubatko, J.J. Westerink, and C.~Dawson.
+\newblock {A wetting and drying treatment for the Runge–Kutta discontinuous
+  Galerkin solution to the shallow water equations}.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  198(17-20):1548--1562, April 2009.
+
+\bibitem{Casulli2009}
+Vincenzo Casulli.
+\newblock {A high-resolution wetting and drying algorithm for free-surface
+  hydrodynamics}.
+\newblock {\em International Journal for Numerical Methods in Fluids},
+  60(4):391--408, June 2009.
+
+\bibitem{Cockburn1989b}
+B.~Cockburn and C.W. Shu.
+\newblock Tvb runge-kutta local projection discontinuous galerkin finite
+  element method for conservation laws ii: General framework.
+\newblock {\em Math. Comp.}, 52:411--435, 1989.
+
+\bibitem{swashe}
+O.~Delestre, C.~Lukas, P.A. Ksinant, F.~Darboux, C.~Laguerre, T.N.T. Vo,
+  F.~James, and S.~Cordier.
+\newblock {SWASHES: a compilation of shallow water analytic solutions for
+  hydraulic and environmental studies}.
+\newblock {\em International Journal for Numerical Methods in Fluids},
+  72:269--300, June 2013.
+
+\bibitem{Fiser2014}
+M.~Fi\v{s}er, O.~Bubl\'{\i}k, L.~Lobovsk\'{y}, and J.~Vimmr.
+\newblock {Problems and Solutions Connected with the Wet/Dry Interface in the
+  Mathematical Model of the Shallow Water Equations}.
+\newblock In {\em 30th Conference with International Participation
+  Computational Mechanics 2014}, pages 27--28, \v{S}pi\v{c}\'{a}k, 2014.
+
+\bibitem{fiser2016}
+Martin Fišer, Ilhan Özgen, Reinhard Hinkelmann, and Jan Vimmr.
+\newblock A mass conservative well-balanced reconstruction at wet/dry
+  interfaces for the godunov-type shallow water model.
+\newblock {\em International Journal for Numerical Methods in Fluids}, 2016.
+\newblock fld.4246.
+
+\bibitem{George2011}
+David~L. George.
+\newblock {Adaptive finite volume methods with well-balanced Riemann solvers
+  for modeling floods in rugged terrain: Application to the Malpasset dam-break
+  flood (France, 1959)}.
+\newblock {\em International Journal for Numerical Methods in Fluids},
+  66(8):1000--1018, July 2011.
+
+\bibitem{Guinot2012}
+Vincent Guinot.
+\newblock {Multiple porosity shallow water models for macroscopic modelling of
+  urban floods}.
+\newblock {\em Advances in Water Resources}, 37:40--72, March 2012.
+
+\bibitem{harten1983}
+A.~Harten, P.~Lax, and B.~Leer.
+\newblock {On Upstream Differencing and Godunov–Type Schemes for Hyperbolic
+  Conservation Laws}.
+\newblock {\em Society for Industrial and Applied Mathematics}, 25:35--61,
+  March 1983.
+
+\bibitem{henderson}
+F.M. Henderson.
+\newblock {\em { Open channel flow}}.
+\newblock Nordby, g. edn., Civil engineering, MacMillan, New York, 1966.
+
+\bibitem{Hou2013}
+J.~Hou, Q.~Liang, F.~Simons, and R.~Hinkelmann.
+\newblock {A stable 2D unstructured shallow flow model for simulations of
+  wetting and drying over rough terrains}.
+\newblock {\em Computers \& Fluids}, 82:132--147, August 2013.
+
+\bibitem{Hou2014}
+J.~Hou, F.~Simons, Q.~Liang, and R.~Hinkelmann.
+\newblock {An improved hydrostatic reconstruction method for shallow water
+  model}.
+\newblock {\em Journal of Hydraulic Research}, 52(June):1--8, May 2014.
+
+\bibitem{JAFFRE1995}
+J.~Jaffre, C.~Johnson, and A.~Szepessy.
+\newblock Convergence of the discontinuous galerkin finite element method for
+  hyperbolic conservation laws.
+\newblock {\em Mathematical Models and Methods in Applied Sciences},
+  05(03):367--386, 1995.
+
+\bibitem{Kesserwani2013}
+G.~Kesserwani.
+\newblock Topography discretization techniques for godunov-type shallow water
+  numerical models: a comparative study.
+\newblock {\em Journal of Hydraulic Research}, 51:351--367, 2013.
+
+\bibitem{kesserwani2015}
+Georges Kesserwani and Qiuhua Liang.
+\newblock {RKDG2 shallow-water solver on non-uniform grids with local time
+  steps: Application to 1D and 2D hydrodynamics}.
+\newblock {\em Applied Mathematical Modelling}, 39(3-4):1317--1340, 2015.
+
+\bibitem{krivodonova2004}
+L.~Krivodonova, J.~Xin, J.F. Remacle, N.~Chevaugeon, and J.E. Flaherty.
+\newblock Shock detection and limiting with discontinuous galerkin methods for
+  hyperbolic conservation laws.
+\newblock {\em Applied Numerical Mathematics}, 48:323--338, 2004.
+
+\bibitem{kurg2}
+A.~Kurganov and G.~Petrova.
+\newblock {A second-order well-balanced positivity preserving central-upwind
+  scheme for the Saint-Venant system}.
+\newblock {\em Communications in Mathematical Sciences}, 5(1):133--160, 2007.
+
+\bibitem{Lacasta2014}
+Alsar Lacasta, M~Morales-Hern\'{a}ndez, Jos\'{e} Murillo, and Pilar
+  Garc\'{\i}a-Navarro.
+\newblock {An optimized GPU implementation of a 2D free surface simulation
+  model on unstructured meshes}.
+\newblock {\em Advances in Engineering Software}, 78:1--15, 2014.
+
+\bibitem{Lax1954}
+Peter Lax.
+\newblock {Weak solutions of nonlinear hyperbolic equations and their numerical
+  computation}.
+\newblock {\em Communications on Pure and Applied Mathematics}, 7:159--193,
+  February 1954.
+
+\bibitem{Liang2010}
+Qiuhua Liang.
+\newblock {Flood simulation using a well-balanced shallow flow model}.
+\newblock {\em Journal of Hydraulic Engineering}, 136(9):669--675, September
+  2010.
+
+\bibitem{Liang2015b}
+Qiuhua Liang, Xilin Xia, and Jingming Hou.
+\newblock Efficient urban flood simulation using a gpu-accelerated sph model.
+\newblock {\em Environmental Earth Sciences}, 74(11):7285--7294, 2015.
+
+\bibitem{ausm}
+M.-S. Liou and C.~Steffen.
+\newblock A new flux splitting scheme.
+\newblock {\em J. Comput. Phys.}, 107:23--39, 1993.
+
+\bibitem{Medeiros2013}
+Stephen~C Medeiros and Scott~C Hagen.
+\newblock {Review of wetting and drying algorithms for numerical tidal flow
+  models}.
+\newblock {\em International Journal for Numerical Methods in Fluids},
+  71(4):473--487, February 2013.
+
+\bibitem{Mugler2011}
+Claude M\"{u}gler, Olivier Planchon, J~Patin, S~Weill, Norbert Silvera,
+  P~Richard, and E.~Mouche.
+\newblock {Comparison of roughness models to simulate overland flow and tracer
+  transport experiments under simulated rainfall at plot scale}.
+\newblock {\em Journal of Hydrology}, 402(1-2):25--40, May 2011.
+
+\bibitem{Nessyahu}
+H.~Nessyahu and E.~Tadmor.
+\newblock {Non-oscillatory Central Differencing for Hyperbolic Conservation
+  Laws}.
+\newblock {\em Journal of Computational Physics}, 87:408--463, 1990.
+
+\bibitem{noelle}
+S.~Noelle, Y.~Xing, and C.~W. Shu.
+\newblock {High-order well-balanced finite volume weno schemes for shallow
+  water equation with moving water}.
+\newblock {\em Journal of Computational Physics}, 226:29--58, 2007.
+
+\bibitem{shu2005}
+J.~Qiu and C.W. Shu.
+\newblock A comparison of troubled-cell indicators for runge–kutta
+  discontinuous galerkin methods usingweighted essentially nonoscillatory
+  limiters.
+\newblock {\em SIAM Journal on Scientific Computing}, 27:995--1013, 2005.
+
+\bibitem{reed1973}
+W.~Reed and T.~Hill.
+\newblock Triangular mesh methods for the neutron transport equation.
+\newblock {\em Technical Report LA-UR-73-479, Los Alamos, NM, Los Alamos
+  Scientific Laboratory}, 1973.
+
+\bibitem{roe}
+P.L. Roe.
+\newblock {Approximate Riemann solvers, parameter vectors and difference
+  schemes}.
+\newblock {\em Journal of Computational Physics}, 43:357--372, 1981.
+
+\bibitem{Simons2014}
+Franz Simons, Tobias Busse, Jingming Hou, Ilhan \"{O}zgen, and Reinhard
+  Hinkelmann.
+\newblock {A model for overland flow and associated processes within the
+  Hydroinformatics Modelling System}.
+\newblock {\em Journal of Hydroinformatics}, 16(2):375--391, March 2014.
+
+\bibitem{Smith2013}
+Luke~S. Smith and Qiuhua Liang.
+\newblock {Towards a generalised GPU/CPU shallow-flow modelling tool}.
+\newblock {\em Computers \& Fluids}, 88:334--343, December 2013.
+
+\bibitem{Song2011a}
+Lixiang Song, Jianzhong Zhou, Qingqing Li, Xiaoling Yang, and Yongchuan Zhang.
+\newblock {An unstructured finite volume model for dam-break floods with
+  wet/dry fronts over complex topography}.
+\newblock {\em International Journal for Numerical Methods in Fluids},
+  67(8):960--980, November 2011.
+
+\bibitem{stoker}
+J.J. Stoker.
+\newblock {\em Water waves}.
+\newblock Interscience Publishers, Wiley, New York, 1957.
+
+\bibitem{Tassi2007998}
+P.A. Tassi, O.~Bokhove, and C.A. Vionnet.
+\newblock Space discontinuous galerkin method for shallow water flows—kinetic
+  and \{HLLC\} flux, and potential vorticity generation.
+\newblock {\em Advances in Water Resources}, 30(4):998 -- 1015, 2007.
+
+\bibitem{Thacker2006}
+W.A. Thacker.
+\newblock {Some exact solutions to the nonlinear shallow-water wave equations}.
+\newblock {\em Journal of Fluid Mechanics}, 107:499--508, June 1981.
+
+\bibitem{Vater20151}
+Stefan Vater, Nicole Beisiegel, and Jörn Behrens.
+\newblock A limiter-based well-balanced discontinuous galerkin method for
+  shallow-water flows with wetting and drying: One-dimensional case.
+\newblock {\em Advances in Water Resources}, 85:1 -- 13, 2015.
+
+\bibitem{Viero2014}
+D.~P. Viero, P.~Peruzzo, L.~Carniello, and A.~Defina.
+\newblock Integrated mathematical modeling of hydrological and hydrodynamic
+  response to rainfall events in rural lowland catchments.
+\newblock {\em Water Resources Research}, 50(7):5941--5957, 2014.
+
+\bibitem{yang2009}
+M.~Yang and Z.J. Wang.
+\newblock A parameter-free generalized moment limiter for high-order methods on
+  unstructured grids.
+\newblock {\em Advances in Applied Mathematics and Mechanics}, 1:451--480,
+  2009.
+
+\bibitem{Zhou2001}
+J.~Zhou, D.M. Causon, C.G. Mingham, and D.~M. Ingram.
+\newblock {The Surface Gradient Method for the Treatment of Source Terms in the
+  Shallow-Water Equations}.
+\newblock {\em Journal of Computational Physics}, 168(1):1--25, March 2001.
+
+\bibitem{cesenek2013}
+J.~Česenek, M.~Feistauer, and A.~Kos.
+\newblock Dgfem for the analysis of airfoil vibrations induced by compressible
+  flow.
+\newblock {\em ZAMM - Journal of Applied Mathematics and Mechanics},
+  93:387--402, 2013.
+
+\end{thebibliography}

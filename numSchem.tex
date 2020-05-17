@@ -1,0 +1,86 @@
+\section{Numerical Scheme of Discontinuous Galerkin Method}\label{NS}
+In this section, numerical scheme of DGFEM is describe. However, it is only basic description of the method. More detailed description of the method can be found in \cite{reed1973}. 
+
+If not redefined, the following nomenclature is used in the article. Index $k$ is iterator over the equations in the mathematical model (i.e., $k$ varies from 1 to 2 in case of 1D SWE model). Index $i$ is iterator over the finite elements. Index $p$ iterates over the Gaussian points and indexes $j$ and $l$ iterate over the basis functions.
+
+Let us consider a 1D computational area $\Omega=[a,b] \subset \mathbb{R}$ and let $t\in[0,T]$. Let $\mathcal{T}=\lbrace \Omega_i \rbrace_{i=1}^n$ be the discretization of the computational area where $\Omega_i=[x_{i-\frac12},x_{i+\frac12}]$ satisfies $\Omega_n \cap \Omega_m=\emptyset$ for $m\neq n$ and $\cup_{i}\Omega_i=\Omega$.
+
+The solution of (\ref{SWE1D}) is from the space $\mathbf{S}_h=S_h\oplus S_h$ such that
+\begin{equation}
+S_h=\lbrace q \in L^2([a,b]):q|_{\Omega_i}\in P^p(\Omega_i),\forall \Omega_i\rbrace
+\end{equation}
+  here $P^p(\Omega_i)$ is the space of polynomials with degree less than or equal to $p$ in $\Omega_i$. The set $\lbrace \varphi_i^j \rbrace_{j=1}^{n_b}$ is a basis of the space $P^p(\Omega_i)$.
+
+The multiplying of the Equation \ref{SWE1D} by the testing function $\textbf{v}(x)\in \mathbf{S}_h$ and integrating over the finite element $\Omega_i$ yields
+\begin{equation}\label{testF}
+\int_{\Omega_i}\parc{\mathbf{W}(x,t)}{t} \textbf{v}(x)  \ d\Omega +\int_{\Omega_i} \parc{\mathbf{F}(x,t)}{x}\mathbf{v}(x) \ d\Omega=\int_{\Omega_i}\mathbf{S}(x,t)\textbf{v}(x) \ d\Omega,
+\end{equation}
+the second integral can be modified in aid of integration-by-parts.
+\begin{equation}\label{testF1D}
+\int_{\Omega_i}\parc{\mathbf{W}(x,t)}{t} \textbf{v}(x)  \ d\Omega +\oint_{\partial \Omega_i} \mathbf{F}(x,t) \textbf{v}(x) \vec{n} \ ds-\int_{\Omega_i} \mathbf{F}(x,t)\parc{v(x)}{x} \ d\Omega=\int_{\Omega_i}\mathbf{S}(x,t)v(x) \ d\Omega,
+\end{equation}
+where $\partial \Omega_i$ is the boundary of the cell $\Omega_i$ and $\vec{n}$ is outer normal vector. Provided that in 1D case the computational cell is an interval $\Omega_i=[x_{i-\frac12},x_{i+\frac12}]$, the curve integral $\oint_{\partial \Omega_i} \mathbf{F}(x,t) v(x)\vec{n} \ ds$ can be replaced by the values at the edges
+\begin{equation}
+\oint_{\partial \Omega_i} \mathbf{F}(x,t) \mathbf{v}(x)\vec{n} \ ds=\left[ \mathbf{F}(x,t) \mathbf{v}(x)\right]_{x-\frac12}^{x+\frac12}= \mathbf{F}(x_{i+\frac12},t) \mathbf{v}(x_{i+\frac12})-\mathbf{F}(x_{i-\frac12},t) \mathbf{v}(x_{i-\frac12}).
+\end{equation}
+In general case, the solution at the edge of the finite element can be discontinuous, thus the flux $\mathbf{F}$  must be replaced by numerical flux $\Phi$ at this place. The numerical flux can be computed by some Riemann solver such as Lax-Friedrich flux \cite{Lax1954}, Roe scheme \cite{roe} or AUSM scheme \cite{ausm}. In this work, HLL scheme proposed in \cite{harten1983} is used. This scheme is based on the estimation of the largest and the smallest discontinuities propagation speeds. This speeds can be estimated by eigenvalues of the system (\ref{SWE1D})
+\begin{equation}\label{rychlosticky}
+ \begin{array}{ccc}
+a_{i+\frac12}^-=min\left\{\lambda_1\left(\mathbf{W}_L\right),\lambda_1\left(\mathbf{W}_R\right),0\right\},\\
+a_{i+\frac12}^+=max\left\{\lambda_2\left(\mathbf{W}_L\right),\lambda_2\left(\mathbf{W}_R\right),0\right\},
+\end{array}
+\end{equation}
+where $W_{L/R}$ stands for the values of the conservative variable vector on the left and right side of an edge. Eigenvalues $\lambda_1$, $\lambda_2$ are defined as
+\begin{equation}
+\begin{array}{c}
+\lambda_1=u-\sqrt{gh},\\
+\lambda_2=u+\sqrt{gh}.
+\end{array}
+\end{equation}
+The final numerical flux is computed as
+\begin{equation}\label{Phi}
+\mathbf{\Phi}=\frac{a_{i+\frac12}^+\mathbf{F}\left(\mathbf{W}_L\right)-a_{i+\frac12}^-\mathbf{F}\left(\mathbf{W}_R\right)}{a_{i+\frac12}^+-a_{i+\frac12}^-}+\frac{a^+_{i+\frac12}a^-_{i+\frac12}}{a^+_{i+\frac12}-a^-_{i+\frac12}}\left[\mathbf{W}_R-\mathbf{W}_L\right].
+\end{equation}
+
+The components of the solution $\mathbf{W}_i=[W_{i,1},W_{i,2}]^T=[h_i,(hu)_i]^T$ are described by the linear combination of the spatial dependant basis functions $\varphi_i(x)$ and time dependant coefficients $w_{i,k}(t)$ as
+\begin{equation}\label{linC}
+W_{i,k}(x,t)=\sum_{j=1}^{n_b} w_{i,k}^j(t) \varphi_{i}^j(x), \quad k=1,2,
+\end{equation}
+here $W_{i,k}(x,t)$ is conservative variable (water depth $h$ for k=1 and discharge $hu$ for k=2) and $n_b$ is number of the basis functions.
+
+ Let us take the testing function $v(x)=v_{i,k}(x), \ k=1,2$, where
+ \begin{equation}
+  v_{i,1}=\begin{bmatrix}
+  \varphi_i^l(x)\\
+  0
+  \end{bmatrix}
+  \end{equation} 
+  and
+ \begin{equation}
+  v_{i,2}=\begin{bmatrix}
+0\\
+  \varphi_i^l(x)
+  \end{bmatrix}
+  \end{equation}  
+For the sake of simplicity the parameters of the functions will be omitted in the following. Substitution of (\ref{linC}) into (\ref{testF1D}) results in the system of differential equations\small
+\begin{equation}\label{system}
+\sum_{j=1}^{n_b} \frac{\text{d}w_{i,k}^j}{\text{d}t}   \int_{\Omega_i}\varphi^j_i \varphi^l_i  \ d\Omega +\left[ \Phi_k \varphi_i^l\right]_{x-\frac12}^{x+\frac12} -\int_{\Omega_i} F_k \parc{\varphi_i^l}{x} \ d\Omega=\int_{\Omega_i} {S_B}_k \varphi_i^l \ d\Omega,  \  l=1,2,\dotso, n_b
+\end{equation}\normalsize
+where $F_k$, $\Phi_k$ or ${S_B}_k$ means the $k^{th}$ component of inviscid flux (\ref{flux}), numerical flux (\ref{Phi}) or bed slope source term (\ref{Sb}). The system of equations (\ref{system}) can be expressed in compact vector form as
+\begin{equation}\label{semi}
+\mathbf{M}_i\frac{\text{d}}{\text{d}t}\mathbf{w}_{i,k}= \mathbf{RHS}_{i,k}
+\end{equation}
+where local mass matrix $\mathbf{M}_i$ is computed as
+\begin{equation}
+\mathbf{M}_i=\int_{\Omega_i} \varphi^l_i \varphi^j_i  \ d\Omega,
+\end{equation}
+ $\mathbf{w}_{i,k}=[w_{i,k}^1,w_{i,k}^2, \dotso, w_{i,k}^{n_b}]^T$ is vector of time dependent coefficients and   vector $\mathbf{RHS}_{i,k}$ is created by the components
+\begin{equation}
+RHS^l_{i,k}=-\oint_{\partial \Omega_i} \Phi_k \varphi_i^l \ 
+ds+\int_{\Omega_i} F_k \parc{\varphi_i^l}{x} \ d\Omega+\int_{\Omega_i}{S_B}_{i,k} \varphi_i^l \ d\Omega, \quad l=1,2,\dotso, n_b
+\end{equation}
+The time integration of the semi-discrete scheme
+\begin{equation}\label{semiB}
+\frac{\text{d}}{\text{d}t}\mathbf{w}_{i,k}= \mathbf{M}_i^{-1}\mathbf{RHS}_{i,k}
+\end{equation}
+can be done by the second order Runge-Kutta method. 

@@ -1,0 +1,11 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Governing Equations}{}% 2
+\BOOKMARK [1][-]{section.3}{Numerical Scheme of Discontinuous Galerkin Method}{}% 3
+\BOOKMARK [1][-]{section.4}{Novel Limiting Criterion and Limiting Process}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Implementation of the Surface Gradient Method}{section.4}% 5
+\BOOKMARK [1][-]{section.5}{Wet/dry Interface}{}% 6
+\BOOKMARK [1][-]{section.6}{Numerical Results}{}% 7
+\BOOKMARK [2][-]{subsection.6.1}{Dam Break on a Wet Domain without Friction}{section.6}% 8
+\BOOKMARK [2][-]{subsection.6.2}{Planar surface flow in a parabola}{section.6}% 9
+\BOOKMARK [2][-]{subsection.6.3}{Flow over the Bump}{section.6}% 10
+\BOOKMARK [1][-]{section.7}{Conclusion}{}% 11

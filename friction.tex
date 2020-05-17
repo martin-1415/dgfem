@@ -1,0 +1,40 @@
+\section{Bed Friction Source Term}\label{friction}
+The bed friction source term is in the mathematical model represented by the bed friction vector (\ref{Sf}), i.e.
+\begin{equation}\nonumber
+\mathbf{S}_{f}=\begin{bmatrix}                                                  
+0 \\                                                                            
+-\tau_f\\                                                    
+\end{bmatrix},
+\end{equation}
+with 
+\begin{equation}
+\tau_f = C_f u |u|
+\end{equation}
+where $C_f$ stands for 
+\begin{equation}\label{CFko}
+C_f=g \frac{n^2}{\sqrt[3]{h}}
+\end{equation}
+and $n$ is Manning's bed roughness factor.
+
+Because of the bed friction the time integration of the Equation \ref{semi} must be done in two steps. First, the semi-discrete scheme without the bed friction term
+\begin{equation}\label{semiB2}
+\frac{\text{d}}{\text{d}t}\mathbf{w}_{i,k}= \mathbf{M}_i^{-1}\mathbf{RHS}_{i,k}
+\end{equation}
+is integrated. Equation \ref{semiB2} yields the solution $\mathbf{w}^{n+\frac12}_{i,k}$ where upper index $n+\frac12$ means the time level. When wetting and drying processes appear in the numerical simulation, the bed friction source term dominates the stability of the numerical scheme due to the water depth in the denominator of (\ref{CFko}). Thus the special limiter must be implemented.
+
+ Within this work we suggest the limiter which is similar to the finite volume limiter described in \cite{marche}. The bed friction affects only momentum equation, thus the limiter must be used only for $k=2$ and we define this limiter as
+  \begin{equation}\label{fricCase}
+\mathbf{w}_{i,2}^{n+1}=
+\begin{cases}
+                \mathbf{w}_{i,2}^{*}   \quad  \quad  \text{if} \quad sign\left(W_{i,2}\left(\mathbf{w}^{n}_{i,2}\right)\right)=
+sign\left(W_{i,2}\left(\mathbf{w}_{i,2}^{*}\right)\right) ,\\
+                \mathbf{0} \quad \text{otherwise,}
+\end{cases}
+\end{equation}
+where
+\begin{equation}
+\mathbf{w}_{i,2}^{*}=\mathbf{w}_{i,2}^{n+\frac12}+\Delta t \mathbf{M}_i^{-1}
+ \prescript{f}{}{\mathbf{RHS}}_{i,2}
+\end{equation}
+and $\mathbf{0}$ is the zero vector. Equation \ref{fricCase} de facto means that the discharge $W_{i,2}=(hu)_i$ is set to be zero in the case when the bed friction term changes the flow direction.
+

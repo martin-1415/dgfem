@@ -1,0 +1,9 @@
+\section{Conclusion}
+
+Novel limiting criterion for limiting process within discontinuous Galerkin method was introduced. This criterion works for both water depth and discharge variables. In Section \ref{DBwet} and \ref{psp}, there was proven that this novel numerical scheme brings better accuracy than finite volume method and DGFEM with global limiting. In the paper there is also successfully implemented the wet/dry treatment used in the theory of finite volumes. This treatment ensures non-negativity of the water depth. Adopted velocity modification (\ref{formVel}) avoids appearance of the non-physically large velocities caused by numerical inaccuracy.
+
+
+
+It is concluded that the presented scheme is able to solve the flow over complex topography and keep the C-property in the flooded domain. The scheme also give good results for both wetting and drying processes.
+
+ The future work can be focused on the bed friction source term and its stability around wet/dry interface when the water depth is approaching zero values and wet/dry interface treatment for the bed function described by higher order polynomials.

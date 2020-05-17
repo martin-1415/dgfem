@@ -1,0 +1,108 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% amsmath package, useful for mathematical formulas
+\usepackage{amsmath}
+% amssymb package, useful for mathematical symbols
+\usepackage{amssymb}
+% more beautiful fraction signs
+\usepackage{nicefrac}
+
+% line numbering
+% \usepackage{lineno}
+
+% hyperref
+\usepackage[hidelinks]{hyperref}
+
+% graphicx package, useful for including eps and pdf graphics
+% include graphics with the command \includegraphics
+\usepackage{graphicx}
+
+% cite package, to clean up citations in the main text. Do not remove.
+\usepackage{cite}
+\usepackage{color} 
+\usepackage{upgreek}%non-italic greek letters
+
+% Use doublespacing - comment out for single spacing
+\usepackage{setspace} 
+\usepackage{mathtools}%\prescript
+\doublespacing
+
+
+% Text layout
+\topmargin 0.0cm
+\oddsidemargin 0.5cm
+\evensidemargin 0.5cm
+\textwidth 16cm 
+\textheight 21cm
+
+% Bold the 'Figure #' in the caption and separate it with a period
+% Captions will be left justified
+%\usepackage[labelfont=bf,labelsep=period,justification=raggedright]{caption}
+
+\bibliographystyle{plain}
+
+\newcommand{\parc}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\bsym}[1]{\ensuremath{\boldsymbol{#1}}}
+
+
+% Leave date blank
+\date{}
+
+\pagestyle{myheadings}
+
+%% PLEASE INCLUDE ALL MACROS BELOW
+
+%% END MACROS SECTION
+
+\begin{document}
+
+% Title must be 150 characters or less
+\begin{flushleft}
+{\Large
+\textbf{Novel limiting Criterion for Discontinuous Galerkin Method Applied in Shallow Water Equations}
+}
+% Insert Author names, affiliations and corresponding author email.
+\\
+Martin Fi\v{s}er$^{1,\ast}$,
+Ondřej Bublík$^{1}$,
+Clive Mingham$^{2}$,
+Jan Vimmr$^{1}$
+\\
+1 NTIS - New Technologies for the Information Society, Faculty of Applied Sciences,
+University of West Bohemia, Pilsen, Czech Republic
+\\
+2 MMU-Manchester Metropolitan University
+School of Computing, Mathematics and Digital Technology,
+Chester Street, Manchester M1 5GD, UK.
+
+$\ast$ E-mail: mfiser@kme.zcu.cz
+\end{flushleft}
+
+%\linenumbers
+
+\section*{Abstract} 
+
+This paper presents a novel limiting criterion for discontinuous Galerkin method implemented for shallow water models with the second order bed elevation discretization. In the paper there is also successfully implemented wet/dry interface treatment adopted from the theory of the finite volume method. This treatment was not used within discontinuous Galerkin method before. The limiting criterion uses surface gradient method for water depth limiting. The second order accurate Runge-Kutta method is used for the time integration. The novel method is tested in three well-known computational benchmarks for which an analytical solution can be derived. 
+
+\section*{Keywords}
+
+shallow water equations, wet/dry interface, HLL scheme, 
+uneven bed, discontinuous Galerkin method, limiting process, bed slope source term
+
+\input{introduction}
+\input{govEqn}
+\input{numSchem}
+\input{lim}
+\input{wetDry}
+%\input{friction}
+\input{numericalRes}
+\input{conclusion}
+\section*{Acknowledgment}
+
+
+\bibliography{library}{}
+\bibliographystyle{unsrt}%plain unsrt
+\end{document}
+

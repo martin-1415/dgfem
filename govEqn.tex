@@ -1,0 +1,33 @@
+\section{Governing Equations}
+Depth-averaged one-dimensional shallow water equations can be written in 
+conservative form as
+\begin{equation}\label{SWE1D}
+\parc{\mathbf{W}}{t}+
+\parc{\mathbf{F}}{x}=\mathbf{S}_b,
+\end{equation}
+where \textbf{W} is the vector of conservative variables described by the 
+water depth $h$ and flow velocity $u$ as
+\begin{equation}\label{konz}
+\mathbf{W}=\begin{bmatrix}
+h\\
+hu\\
+\end{bmatrix},
+\end{equation}
+\textbf{F} is the vector function of inviscid flux
+\begin{equation}\label{flux}
+\mathbf{F}=\begin{bmatrix}
+hu \\ 
+hu^2 + \frac{1}{2}g h^2\\
+\end{bmatrix},
+\end{equation}
+here $g$ is gravity acceleration. Bed slope source term $\mathbf{S}_{b}$ is defined as
+\begin{equation}\label{Sb}
+\mathbf{S}_{b}=\begin{bmatrix}
+0 \\
+-g h\parc{B(x)}{x}\\
+\end{bmatrix},
+\end{equation}
+where $B(x)$ is the bottom topography. $B(x)$ might vary in time, however 
+is considered time-independent in this work.
+
+The source vector may further contain rain source term, bed friction term, fluid viscosity effects, wind shear, turbulent viscosity or Coriolis forces, depending on the case under consideration. These effects are neglected in this work. 
