@@ -1,285 +1,46 @@
-This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: article.aux
 The style file: plain.bst
-Illegal, another \bibstyle command---line 209 of file article.aux
- : \bibstyle
- :          {unsrt}
-I'm skipping whatever remains of this command
 Database file #1: library.bib
-I was expecting a `,' or a `}'---line 10 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-Repeated entry---line 303 of file library.bib
- : @mastersthesis{fiser2016
- :                         ,
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 321 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 336 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 407 of file library.bib
- : 
- : keywords = {},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 424 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 438 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 454 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 468 of file library.bib
- : keywords 
- :          = {proof, that bed slope is not well balanced in nuture},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 482 of file library.bib
- : 
- : keywords = {},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 496 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 511 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 528 of file library.bib
- : 
- : keywords = {},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 543 of file library.bib
- : 
- : keywords = {},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 559 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 574 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 588 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 602 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 619 of file library.bib
- : 
- : keywords = {},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 637 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 651 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 665 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 713 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 727 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 741 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 767 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 781 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 796 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 810 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 832 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 846 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 876 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 914 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 928 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 942 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 956 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 992 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 1032 of file library.bib
- : 
- : keywords = {},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 1077 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 1092 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 1106 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 1143 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 1157 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 1170 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 1184 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 1198 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 1252 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-Repeated entry---line 2587 of file library.bib
- : @article{Kesserwani2013
- :                        ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 3537 of file library.bib
- : @article{Krivodonova2004
- :                         ,
-I'm skipping whatever remains of this entry
-You're missing a field part---line 4807 of file library.bib
- : 
- : }
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field part---line 4821 of file library.bib
- : 
- : }
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 4840 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 4856 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 4871 of file library.bib
- : 
- : keywords = {},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 4915 of file library.bib
- : keywords 
- :          = {},
-I'm skipping whatever remains of this entry
-Name 1 in "Cockburn, B., and C.W. Shu." has a comma at the end for entry Cockburn1989b
-while executing---line 1049 of file plain.bst
-Warning--empty year in ref1
-Name 1 in "Cockburn, B., and C.W. Shu." has a comma at the end for entry Cockburn1989b
-while executing---line 1090 of file plain.bst
-You've used 49 entries,
+You've used 50 entries,
             2118 wiz_defined-function locations,
-            827 strings with 13460 characters,
-and the built_in function-call counts, 17158 in all, are:
-= -- 1734
-> -- 816
+            833 strings with 14046 characters,
+and the built_in function-call counts, 17616 in all, are:
+= -- 1769
+> -- 882
 < -- 2
-+ -- 327
-- -- 272
-* -- 1361
-:= -- 2901
-add.period$ -- 150
-call.type$ -- 49
-change.case$ -- 281
++ -- 355
+- -- 296
+* -- 1363
+:= -- 3002
+add.period$ -- 153
+call.type$ -- 50
+change.case$ -- 296
 chr.to.int$ -- 0
 cite$ -- 50
-duplicate$ -- 554
-empty$ -- 1284
-format.name$ -- 272
-if$ -- 3461
+duplicate$ -- 565
+empty$ -- 1295
+format.name$ -- 296
+if$ -- 3552
 int.to.chr$ -- 0
-int.to.str$ -- 49
-missing$ -- 51
-newline$ -- 251
-num.names$ -- 98
-pop$ -- 205
+int.to.str$ -- 50
+missing$ -- 52
+newline$ -- 256
+num.names$ -- 100
+pop$ -- 216
 preamble$ -- 1
-purify$ -- 234
+purify$ -- 248
 quote$ -- 0
-skip$ -- 368
+skip$ -- 377
 stack$ -- 0
-substring$ -- 1351
-swap$ -- 61
+substring$ -- 1336
+swap$ -- 62
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 192
-warning$ -- 1
-while$ -- 184
-width$ -- 51
-write$ -- 545
-(There were 58 error messages)
+type$ -- 196
+warning$ -- 0
+while$ -- 185
+width$ -- 52
+write$ -- 557
