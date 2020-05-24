@@ -1,24 +1,76 @@
 \section{Introduction}
 
+Environmental and geophysical flow modeling commonly relies on the
+numerical solution of the depth-averaged shallow water equations
+(SWE).  While finite volume discretizations with Godunov-type
+numerical fluxes are currently favored for solving the SWE---see, for
+example, \cite{Mugler2011, George2011, Lacasta2014, Hou2013,
+  Simons2014, Echeverribar2019, Xia2019}, there has been significant
+effort put into developing discontinuous Galerkin finite element
+(DGFEM) discretizations, for example, \cite{CaviedesVoullieme2015,
+  kesserwani2015, Kesserwani2019, Vater20151, Vater2019,
+  CaviedesVoullieme2020, NavasMontilla2020}.
 
-Discontinuous Galerkin method (DGFEM) has been used in many practical applications since it's introduction in 1973 \cite{reed1973}. Thanks to the computer development, this computationally demanding method experienced a vigorous development in last two decades and was also applied to the solution of shallow water equations \cite{kesserwani2015,Vater20151,Ambati2007452,ref1,JAFFRE1995}.
+Many realistic SWE applications involve wetting and drying processes,
+for example coastal simulations may involve wave runup and overtopping
+\cite{Vater20151, Medeiros2013, Vater2019}, rainfall-runoff
+simulations involve very small water depths and cells frequently dry
+out and get flooded \cite{Simons2014, Lacasta2014, Xia2017}, and urban
+flood simulations involve advancing wet--dry fronts \cite{George2011}.
+The proper numerical treatment of these wet--dry interfaces is
+directly related to crucial properties, which according to
+\cite{CaviedesVoullieme2020} must be satisfied by the numerical scheme
+in order to ensure an accurate solution.  These properties are (i)
+mass conservation, (ii) C-property, (iii) well-balancedness, (iv)
+positivity-preserving, and (v) shock-capturing.
 
- Shallow water flow models can be applied to a broad range of surface flows such as river hydraulics \cite{kesserwani2015,Liang2015b} , dam break simulations \cite{George2011, Song2011a, 
-Lacasta2014}, urban flood modeling \cite{Liang2010, Smith2013, Guinot2012} or
-rainfall-runoff in natural catchments \cite{Simons2014, Mugler2011, 
-Viero2014}.
+In most of these cases wetting and drying processes of the cells occur
+during the simulation, e.g. part of the computational domain may fall
+dry or the domain may start initially dry and get flooded. The
+interface between a wet and a dry cell is usually referred to as a
+wet/dry interface \cite{Bollermann2013,Beisiegel2015}.  In
+\cite{Vater20151} the wet/dry interface treatment is described for the
+second order DGFEM. In this work the treatment suitable for the third
+order DGFEM is suggested.
 
-In most of these cases wetting and drying processes of the cells occur during 
-the simulation, e.g. part of the computational domain may fall dry or the 
-domain may start initially dry and get flooded. The 
-interface between a wet and a dry cell is usually referred to as a wet/dry interface \cite{Bollermann2013,Beisiegel2015}.  In \cite{Vater20151} the wet/dry interface treatment is described for the second order DGFEM. In this work the treatment suitable for the third order DGFEM is suggested.
+The mathematical model of shallow water equations contains the source
+terms. The bed slope source term is caused by the bed
+irregularities. This source term is well described in many works like
+\cite{Ambati2007452,Ambati20071233,kesserwani2015,Beisiegel2015,Tassi2007998}.
 
-The mathematical model of shallow water equations contains the source terms. The bed slope source term is caused by the bed irregularities. This source term is well described in many works like \cite{Ambati2007452,Ambati20071233,kesserwani2015,Beisiegel2015,Tassi2007998}. 
+Except for wet/dry interface and bed slope source term, special
+treatment is also needed if the shocks and discontinuities are present
+in the computational domain. High order accuracy schemes have to be
+limited to prevent them from the appearance of non-physical
+oscillations. In the theory of the finite volume method with linear
+reconstruction of the conservative variables, some TVD-minmod limiter
+restricts the variation of the local slope of the linear approximation
+with respect to the upstream and downstream gradients. This is
+referred to as a global limiting process. Accordingly to
+\cite{krivodonova2004,shu2005} this global limiting approach leads to
+the loss of accuracy. Thus the limiter is used only in 'troubled'
+cells. In \cite{krivodonova2004} the discontinuity detection scheme
+was used to define these cells. The same criterion was used in
+\cite{Ambati2007452}. In \cite{kesserwani2015}, Kesserwani added the
+criterion of monotonicity of the solution. Disadvantage of the
+discontinuity criterion is the definition of the discontinuity
+itself. Discontinuity in the solution is compared with a predefined
+constant which defines the 'troubled' cells. Unfortunately this
+constant can be arbitrarily large and depends on the study case.
+Within this work we suggest novel criterion of defining 'troubled'
+cells. This criterion is based on the shape of the solution in the
+finite element cell and not depends on any constant.
 
-Except for wet/dry interface and bed slope source term, special treatment is also needed if the shocks and discontinuities are present in the computational domain. High order accuracy schemes have to be limited to prevent them from the appearance of non-physical oscillations. In the theory of the finite volume method with linear reconstruction of the conservative variables, some TVD-minmod limiter restricts the variation of the local slope of the linear approximation with respect to the upstream and downstream gradients. This is referred to as a global limiting process. Accordingly to \cite{krivodonova2004,shu2005} this global limiting approach leads to the loss of accuracy. Thus the limiter is used only in 'troubled' cells. In \cite{krivodonova2004} the discontinuity detection scheme was used to define these cells. The same criterion was used in \cite{Ambati2007452}. In \cite{kesserwani2015}, Kesserwani added the criterion of monotonicity of the solution. Disadvantage of the discontinuity criterion is the definition of the discontinuity itself. Discontinuity in the solution is compared with a predefined constant which defines the 'troubled' cells. Unfortunately this constant can be arbitrarily large and depends on the study case.  Within this work we suggest novel criterion of defining 'troubled' cells. This criterion is based on the shape of the solution in the finite element cell and not depends on any constant. 
+In the 'troubled' cells the limiting process is implemented. In
+\cite{JAFFRE1995,Ambati2007452}, the limiting-dissipation operator was
+used to limit the numerical solution. Artificial viscosity was used
+for example in \cite{cesenek2013, bublik2011,Bublik2015329}. Within
+this work, the process described in \cite{Cockburn1989b} is used. The
+solution is limited by decreasing of the order of accuracy to the
+second order. This second order solution was then limited by minmod
+limiter. Finite volume limiters were also adopted in \cite{yang2009}.
 
-In the 'troubled' cells the limiting process is implemented. In \cite{JAFFRE1995,Ambati2007452}, the limiting-dissipation operator was used to limit the numerical solution. Artificial viscosity was used for example in \cite{cesenek2013, bublik2011,Bublik2015329}. Within this work, the process described in \cite{Cockburn1989b} is used. The solution is limited by decreasing of the order of accuracy to the second order. This second order solution was then limited by minmod limiter. Finite volume limiters were also adopted in \cite{yang2009}.
-
-
-
-The novel criterion of defining 'troubled' cells and wet/dry interface treatment are tested and validated by the classical benchmarks and compared by other numerical methods and analytical solutions at the end of this paper.
+The novel criterion of defining 'troubled' cells and wet/dry interface
+treatment are tested and validated by the classical benchmarks and
+compared by other numerical methods and analytical solutions at the
+end of this paper.
