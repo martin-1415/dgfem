@@ -84,7 +84,14 @@ $\ast$ E-mail: mfiser@kme.zcu.cz
 
 \section*{Abstract} 
 
-This paper presents a novel limiting criterion for discontinuous Galerkin method implemented for shallow water models with the second order bed elevation discretization. In the paper there is also successfully implemented wet/dry interface treatment adopted from the theory of the finite volume method. This treatment was not used within discontinuous Galerkin method before. The limiting criterion uses surface gradient method for water depth limiting. The second order accurate Runge-Kutta method is used for the time integration. The novel method is tested in three well-known computational benchmarks for which an analytical solution can be derived. 
+This paper presents a novel limiting criterion for discontinuous Galerkin method im-
+plemented for shallow water models and the third order accurate schemes. This novel
+criterion defines ’troubled cells’ which have to be limited. In the paper there is also suc-
+cessfully implemented wet/dry interface treatment which ensures non-negativity of the
+water depth. The limiting criterion uses surface gradient method for water depth limiting.
+The second order accurate Runge-Kutta method is used for the time integration. The
+novel method is tested by well-known computational benchmarks for which an analytical
+solution can be derived.
 
 \section*{Keywords}
 
