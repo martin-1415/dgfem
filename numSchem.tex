@@ -3,7 +3,7 @@ In this section, numerical scheme of DGFEM is describe. However, it is only basi
 
 If not redefined, the following nomenclature is used in the article. Index $k$ is iterator over the equations in the mathematical model (i.e., $k$ varies from 1 to 2 in case of 1D SWE model). Index $i$ is iterator over the finite elements. Index $p$ iterates over the Gaussian points and indexes $j$ and $l$ iterate over the basis functions.
 
-Let us consider a 1D computational area $\Omega=[a,b] \subset \mathbb{R}$ and let $t\in[0,T]$. Let $\mathcal{T}=\lbrace \Omega_i \rbrace_{i=1}^n$ be the discretization of the computational area where $\Omega_i=[x_{i-\frac12},x_{i+\frac12}]$ satisfies $\Omega_n \cap \Omega_m=\emptyset$ for $m\neq n$ and $\cup_{i}\Omega_i=\Omega$.
+Let us consider a 1D computational area $\Omega=[a,b] \subset \mathbb{R}$ and let $t\in[0,T]$. Let $\mathcal{T}=\lbrace \Omega_i \rbrace_{i=1}^n$ be the discretization of the computational area where $\Omega_i=[x_{i-\frac12},x_{i+\frac12}]$ and $\cup_{i}\Omega_i=\Omega$.
 
 The solution of (\ref{SWE1D}) is from the space $\mathbf{S}_h=S_h\oplus S_h$ such that
 \begin{equation}
@@ -13,9 +13,9 @@ S_h=\lbrace q \in L^2([a,b]):q|_{\Omega_i}\in P^p(\Omega_i),\forall \Omega_i\rbr
 
 The multiplying of the Equation \ref{SWE1D} by the testing function $\textbf{v}(x)\in \mathbf{S}_h$ and integrating over the finite element $\Omega_i$ yields
 \begin{equation}\label{testF}
-\int_{\Omega_i}\parc{\mathbf{W}(x,t)}{t} \textbf{v}(x)  \ d\Omega +\int_{\Omega_i} \parc{\mathbf{F}(x,t)}{x}\mathbf{v}(x) \ d\Omega=\int_{\Omega_i}\mathbf{S}(x,t)\textbf{v}(x) \ d\Omega,
+\int_{\Omega_i}\parc{\mathbf{W}(x,t)}{t} \cdot \textbf{v}(x)  \ d\Omega +\int_{\Omega_i} \parc{\mathbf{F}(x,t)}{x} \cdot \mathbf{v}(x) \ d\Omega=\int_{\Omega_i}\mathbf{S}(x,t) \cdot \textbf{v}(x) \ d\Omega,
 \end{equation}
-the second integral can be modified in aid of integration-by-parts.
+where '$\cdot$' means scalar product. The second integral can be modified in aid of integration-by-parts.
 \begin{equation}\label{testF1D}
 \int_{\Omega_i}\parc{\mathbf{W}(x,t)}{t} \textbf{v}(x)  \ d\Omega +\oint_{\partial \Omega_i} \mathbf{F}(x,t) \textbf{v}(x) \vec{n} \ ds-\int_{\Omega_i} \mathbf{F}(x,t)\parc{v(x)}{x} \ d\Omega=\int_{\Omega_i}\mathbf{S}(x,t)v(x) \ d\Omega,
 \end{equation}
