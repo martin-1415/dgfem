@@ -1,5 +1,5 @@
 \section{Numerical Scheme of Discontinuous Galerkin Method}\label{NS}
-In this section, numerical scheme of DGFEM is describe. However, it is only basic description of the method. More detailed description of the method can be found in \cite{reed1973}. 
+In this section, numerical scheme of DGFEM is describe. However, it is only basic description of the method. More detailed description of the method can be found in \cite{reed1973}.
 
 If not redefined, the following nomenclature is used in the article. Index $k$ is iterator over the equations in the mathematical model (i.e., $k$ varies from 1 to 2 in case of 1D SWE model). Index $i$ is iterator over the finite elements. Index $p$ iterates over the Gaussian points and indexes $j$ and $l$ iterate over the basis functions.
 
@@ -15,11 +15,11 @@ The multiplying of the Equation \ref{SWE1D} by the testing function $\textbf{v}(
 \begin{equation}\label{testF}
 \int_{\Omega_i}\parc{\mathbf{W}(x,t)}{t} \cdot \textbf{v}(x)  \ d\Omega +\int_{\Omega_i} \parc{\mathbf{F}(x,t)}{x} \cdot \mathbf{v}(x) \ d\Omega=\int_{\Omega_i}\mathbf{S}(x,t) \cdot \textbf{v}(x) \ d\Omega,
 \end{equation}
-where '$\cdot$' means scalar product. The second integral can be modified in aid of integration-by-parts.
+where '$\cdot$' means scalar product. The second integral can be modified in aid of integration-by-parts
 \begin{equation}\label{testF1D}
 \int_{\Omega_i}\parc{\mathbf{W}(x,t)}{t} \textbf{v}(x)  \ d\Omega +\oint_{\partial \Omega_i} \mathbf{F}(x,t) \textbf{v}(x) \vec{n} \ ds-\int_{\Omega_i} \mathbf{F}(x,t)\parc{v(x)}{x} \ d\Omega=\int_{\Omega_i}\mathbf{S}(x,t)v(x) \ d\Omega,
 \end{equation}
-where $\partial \Omega_i$ is the boundary of the cell $\Omega_i$ and $\vec{n}$ is outer normal vector. Provided that in 1D case the computational cell is an interval $\Omega_i=[x_{i-\frac12},x_{i+\frac12}]$, the curve integral $\oint_{\partial \Omega_i} \mathbf{F}(x,t) v(x)\vec{n} \ ds$ can be replaced by the values at the edges
+where $\partial \Omega_i$ is the boundary of the cell $\Omega_i$ and $\vec{n}$ is an outer normal vector. Provided that in 1D case the computational cell is an interval $\Omega_i=[x_{i-\frac12},x_{i+\frac12}]$, the curve integral $\oint_{\partial \Omega_i} \mathbf{F}(x,t) \mathbf{v}(x)\vec{n} \ ds$ can be replaced by the values at the edges
 \begin{equation}
 \oint_{\partial \Omega_i} \mathbf{F}(x,t) \mathbf{v}(x)\vec{n} \ ds=\left[ \mathbf{F}(x,t) \mathbf{v}(x)\right]_{x-\frac12}^{x+\frac12}= \mathbf{F}(x_{i+\frac12},t) \mathbf{v}(x_{i+\frac12})-\mathbf{F}(x_{i-\frac12},t) \mathbf{v}(x_{i-\frac12}).
 \end{equation}
@@ -47,26 +47,27 @@ The components of the solution $\mathbf{W}_i=[W_{i,1},W_{i,2}]^T=[h_i,(hu)_i]^T$
 W_{i,k}(x,t)=\sum_{j=1}^{n_b} w_{i,k}^j(t) \varphi_{i}^j(x), \quad k=1,2,
 \end{equation}
 here $W_{i,k}(x,t)$ is conservative variable (water depth $h$ for k=1 and discharge $hu$ for k=2) and $n_b$ is number of the basis functions.
+For the sake of simplicity the parameters of the functions will be omitted in the following.
 
- Let us take the testing function $v(x)=v_{i,k}(x), \ k=1,2$, where
+ Let us take the testing function $\mathbf{v}(x)=v_{i,k}(x), \ k=1,2$, where
  \begin{equation}
-  v_{i,1}=\begin{bmatrix}
+  \mathbf{v}_{i,1}=\begin{bmatrix}
   \varphi_i^l(x)\\
   0
   \end{bmatrix}
-  \end{equation} 
+  \end{equation}
   and
  \begin{equation}
-  v_{i,2}=\begin{bmatrix}
+  \mathbf{v}_{i,2}=\begin{bmatrix}
 0\\
   \varphi_i^l(x)
   \end{bmatrix}
-  \end{equation}  
+  \end{equation}
 For the sake of simplicity the parameters of the functions will be omitted in the following. Substitution of (\ref{linC}) into (\ref{testF1D}) results in the system of differential equations\small
 \begin{equation}\label{system}
 \sum_{j=1}^{n_b} \frac{\text{d}w_{i,k}^j}{\text{d}t}   \int_{\Omega_i}\varphi^j_i \varphi^l_i  \ d\Omega +\left[ \Phi_k \varphi_i^l\right]_{x-\frac12}^{x+\frac12} -\int_{\Omega_i} F_k \parc{\varphi_i^l}{x} \ d\Omega=\int_{\Omega_i} {S_B}_k \varphi_i^l \ d\Omega,  \  l=1,2,\dotso, n_b
 \end{equation}\normalsize
-where $F_k$, $\Phi_k$ or ${S_B}_k$ means the $k^{th}$ component of inviscid flux (\ref{flux}), numerical flux (\ref{Phi}) or bed slope source term (\ref{Sb}). The system of equations (\ref{system}) can be expressed in compact vector form as
+where $F_k$, $\Phi_k$ or ${S_B}_k$ means the $k^{th}$ component of inviscid flux (\ref{flux}), numerical flux (\ref{Phi}) or bed slope source term (\ref{Sb}) respectively. The system of equations (\ref{system}) can be expressed in compact vector form as
 \begin{equation}\label{semi}
 \mathbf{M}_i\frac{\text{d}}{\text{d}t}\mathbf{w}_{i,k}= \mathbf{RHS}_{i,k}
 \end{equation}
@@ -76,11 +77,11 @@ where local mass matrix $\mathbf{M}_i$ is computed as
 \end{equation}
  $\mathbf{w}_{i,k}=[w_{i,k}^1,w_{i,k}^2, \dotso, w_{i,k}^{n_b}]^T$ is vector of time dependent coefficients and   vector $\mathbf{RHS}_{i,k}$ is created by the components
 \begin{equation}
-RHS^l_{i,k}=-\oint_{\partial \Omega_i} \Phi_k \varphi_i^l \ 
-ds+\int_{\Omega_i} F_k \parc{\varphi_i^l}{x} \ d\Omega+\int_{\Omega_i}{S_B}_{i,k} \varphi_i^l \ d\Omega, \quad l=1,2,\dotso, n_b
+RHS^l_{i,k}=-\oint_{\partial \Omega_i} \Phi_k \varphi_i^l \
+ds+\int_{\Omega_i} F_k \parc{\varphi_i^l}{x} \ d\Omega+\int_{\Omega_i}{S_B}_{i,k} \varphi_i^l \ d\Omega, \quad l=1,2,\dotso, n_b.
 \end{equation}
 The time integration of the semi-discrete scheme
 \begin{equation}\label{semiB}
 \frac{\text{d}}{\text{d}t}\mathbf{w}_{i,k}= \mathbf{M}_i^{-1}\mathbf{RHS}_{i,k}
 \end{equation}
-can be done by the second order Runge-Kutta method. 
+can be done for example by the second order Runge-Kutta method.
