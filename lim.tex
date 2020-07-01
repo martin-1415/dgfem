@@ -8,7 +8,7 @@ In case of solution described by the first order polynomials (i.e. linear functi
 \end{equation}
 which are used in minmod limiter. Here $\Delta x$ means the distance between the middles of the adjacent finite volumes.
 
-The initial conditions of the classical Riemann problem can bee seen in Figure \ref{riemann} where the water depth and flat bed function is plotted. The initial velocity is zero.
+The initial conditions of the classical Riemann problem can bee seen in Figure \ref{riemann} where the water depth and flat bed function is plotted. The initial velocity is zero. Some other works define the ’troubled’ cells by discontinuity at the edge of the cells HERE SOME REFERENCE IS NEEDED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!. The present work does not define the ’troubled cells’ by the discontinuity at the edge of the finite elements but rather by the shape of the polynomials.
 \begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{OBR/riemann.eps}
@@ -17,12 +17,12 @@ The initial conditions of the classical Riemann problem can bee seen in Figure \
 \begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{OBR/first.eps}
-\caption{First time iteration of non-limited water depth.}\label{first}
+\caption{The first time iteration of non-limited water depth.}\label{first}
 \end{figure}
 \begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{OBR/HU.eps}
-\caption{First time iteration of non-limited discharge.}\label{HU}
+\caption{The first time iteration of non-limited discharge.}\label{HU}
 \end{figure}
 It is very likely that non-limited solution around the shock is not monotone and concave or convex as shown for water depth and discharge in Figures \ref{first} and \ref{HU}. The novel criterion for the second order polynomial base functions suppose, that the solution in the centre of the finite element must be bounded by the values at the edge of this element. If the solution in the middle is not bounded, i.e.
 \begin{equation}\label{crit}
@@ -34,7 +34,7 @@ It is very likely that non-limited solution around the shock is not monotone and
 \end{equation}
 the cell is defined as 'troubled' and the solution of a conservative variable must be limited in this cell.
 
-The solution in the 'troubled' cells must be limited. The limiting process, used within this work, is similar to the limiting process of Cockburn and Shu \cite{Cockburn1989b}. This process consist in lowering the polynomial order and employing suitable limiter. As a basis functions the Legendre polynomials are used.
+The limiting process, used within this work, is similar to the limiting process of Cockburn and Shu \cite{Cockburn1989b} WHAT  Cockburn and Shu DO? Short description !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!. This process consist in lowering the polynomial order and employing suitable limiter. As a basis functions the Legendre polynomials are used.
 
  This polynomials can bee seen in Table \ref{table:legendre}.
 \begin{table}
