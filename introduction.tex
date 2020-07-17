@@ -21,7 +21,15 @@ flood front, which switches cells from dry to wet as it propagates
 through the domain \cite{George2011}.  The interface between a wet and
 a dry cell is usually referred to as a wet/dry interface
 \cite{Bollermann2013, Beisiegel2015} and requires special
-considerations. TODO: literature review
+considerations.  Many treatments in the literature rely on
+slope-limiter techniques \cite{Beisiegel2015, Vater20151, Vater2019,
+  Le:2020}.  Other treatments include front-tracking \cite{ref1,
+  Ambati2007452}, linear scaling of high order coefficients around the
+cell average to ensure positivity of water depth \cite{xing2010,
+  Marras:2016}, and thin layer techniques \cite{ern2008, cotoJe,
+  Lee:2016}. Another interesting treatment is shown in
+\cite{Karna:2011}, where negative water depths are addressed by
+adapting the bottom elevation.
 
 Another numerical issue arises in realistic SWE applications due to
 rough topography.  In the mathematical model of the SWE, the
