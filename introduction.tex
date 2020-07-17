@@ -38,17 +38,18 @@ method \cite{zhou}, the f-wave solvers \cite{George:2008,
   LeVeque:2011}, and the augmented solvers \cite{NavasMontilla2020},
 among many others.
 
-In this work, we develop a third-order accurate discontinuous Galerkin
-(DG) method with a novel stability criterion. In recent years, DG
-methods have gained significant interest as a means to numerically
-solve the SWE \cite{CaviedesVoullieme2015, kesserwani2015, Vater20151,
-  Marras:2016, Kesserwani2019, Vater2019, CaviedesVoullieme2020,
-  NavasMontilla2020}.  The DG method uses a local piecewise-polynomial
-representation of the solution, which is driven by fluxes across cell
-interfaces.  Thus, the DG method is locally conservative.  Higher
-order of accuracy is achieved by increasing the polynomial order.
-Such high order schemes require additional numerical treatment to
-prevent them from producing non-physical oscillations.
+In this work, we develop a robust, third-order accurate discontinuous
+Galerkin (DG) method with a novel stability criterion. In recent
+years, DG methods have gained significant interest as a means to
+numerically solve the SWE \cite{CaviedesVoullieme2015, kesserwani2015,
+  Vater20151, Marras:2016, Kesserwani2019, Vater2019,
+  CaviedesVoullieme2020, NavasMontilla2020}.  The DG method uses a
+local piecewise-polynomial representation of the solution, which is
+driven by fluxes across cell interfaces.  Thus, the DG method is
+locally conservative.  Higher order of accuracy is achieved by
+increasing the polynomial order.  Such high order schemes require
+additional numerical treatment to prevent them from producing
+non-physical oscillations.
 
 A well-known approach in the theory of higher order finite volume and
 finite difference methods is the use of slope limiters to ensure that
@@ -74,11 +75,13 @@ This criterion is based on the shape of the solution in the cell and
 does not require any user-specified constant.  In the detected
 troubled cells, we apply the strategy from \cite{Cockburn1989b}, where
 the solution's accuracy is decreased to second order and then further
-limited using a minmod-limiter.
+limited using a minmod-limiter.  Equilibria are preserved through the
+surface gradient method \cite{zhou}.  Wet/dry interfaces are treated
+following the positivity preserving reconstruction in \cite{kurg2}.
 
 The rest of the paper is structured as follows.  Firstly, we present
 the governing equations and the DG method.  This is followed by a
-presentation of the novel criterion to detect troubled cells, and a
-discussion of the treatment of wet/dry interfaces.  The resulting
-scheme is tested in a set of benchmarks.  Finally, conclusions are
-given.
+presentation of the novel criterion to detect troubled cells and
+discussions of the surface gradient method and the wet/dry interface
+treatment.  The resulting scheme is tested in a set of benchmarks.
+Finally, conclusions are given.
