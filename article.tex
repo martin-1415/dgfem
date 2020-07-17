@@ -66,25 +66,28 @@
 % Insert Author names, affiliations and corresponding author email.
 \\
 Martin Fi\v{s}er$^{1,\ast}$,
-Ondřej Bublík$^{1}$,
-Clive Mingham$^{2}$,
-Jan Vimmr$^{1}$
-\\
+
+
 1 NTIS - New Technologies for the Information Society, Faculty of Applied Sciences,
 University of West Bohemia, Pilsen, Czech Republic
-\\
-2 MMU-Manchester Metropolitan University
-School of Computing, Mathematics and Digital Technology,
-Chester Street, Manchester M1 5GD, UK.
 
-$\ast$ E-mail: mfiser@kme.zcu.cz
+
+$\ast$ E-mail: martin.fischer1415@gmail.com
 \end{flushleft}
 
 %\linenumbers
 
 \section*{Abstract} 
 
-This paper presents a novel limiting criterion for discontinuous Galerkin method implemented for shallow water models with the second order bed elevation discretization. In the paper there is also successfully implemented wet/dry interface treatment adopted from the theory of the finite volume method. This treatment was not used within discontinuous Galerkin method before. The limiting criterion uses surface gradient method for water depth limiting. The second order accurate Runge-Kutta method is used for the time integration. The novel method is tested in three well-known computational benchmarks for which an analytical solution can be derived. 
+This paper presents a novel limiting method for discontinuous Galerkin method im-
+plemented for shallow water models and the third order accurate schemes. This novel
+method defines ’troubled cells’, which have to be limited, accordingly to the shape of the approximating functions rather then 
+comparing the discontinuity with any arbitrary constant.  In the paper there is also suc-
+cessfully implemented wet/dry interface treatment which ensures non-negativity of the
+water depth and surface gradient method. The limiting criterion uses surface gradient method for water depth limiting.
+The second order accurate Runge-Kutta method is used for the time integration. The
+novel method is tested by well-known computational benchmarks for which an analytical
+solution can be derived.
 
 \section*{Keywords}
 
