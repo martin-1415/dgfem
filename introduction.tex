@@ -1,42 +1,57 @@
 \section{Introduction}
 
-Environmental and geophysical flow modeling commonly relies on the
-numerical solution of the depth-averaged shallow water equations
-(SWE).  While finite volume discretizations with Godunov-type
-numerical fluxes are currently favored for solving the SWE---see, for
-example, \cite{Mugler2011, George2011, Lacasta2014, Hou2013,
-  Simons2014, Echeverribar2019, Xia2019}, there has been significant
-effort put into developing discontinuous Galerkin finite element
-(DGFEM) discretizations, for example, \cite{CaviedesVoullieme2015,
-  kesserwani2015, Kesserwani2019, Vater20151, Vater2019,
-  CaviedesVoullieme2020, NavasMontilla2020}.
+The study and prediction of environmental and geophysical flow
+processes requires knowledge of the spatially and temporally varying
+flow field.  Large scale, predominantly horizontal flow fields in such
+application fields are usually computed through the numerical solution
+of the depth-integrated shallow water equations (SWE).  For example,
+SWE-based models are used for tsunami and coastal inundation
+predictions in \cite{Marras:2016, Vater2019, Qin:2019}, flood
+predictions \cite{George2011, Echeverribar2019}, and river hydraulics
+\cite{Persi:2019}.  More recently, the SWE have been used in
+rainfall-runoff studies in small natural catchments \cite{Mugler2011,
+  Lacasta2014, Simons2014, Xia2019, CaviedesVoullieme2020}.
 
-Many realistic SWE applications involve wetting and drying processes,
-for example coastal simulations may involve wave runup and overtopping
-\cite{Vater20151, Medeiros2013, Vater2019}, rainfall-runoff
-simulations involve very small water depths and cells frequently dry
-out and get flooded \cite{Simons2014, Lacasta2014, Xia2017}, and urban
-flood simulations involve advancing wet--dry fronts \cite{George2011}.
-The proper numerical treatment of these wet--dry interfaces is
-directly related to crucial properties, which according to
-\cite{CaviedesVoullieme2020} must be satisfied by the numerical scheme
-in order to ensure an accurate solution.  These properties are (i)
-mass conservation, (ii) C-property, (iii) well-balancedness, (iv)
-positivity-preserving, and (v) shock-capturing.
-
-In most of these cases wetting and drying processes of the cells occur
-during the simulation, e.g. part of the computational domain may fall
-dry or the domain may start initially dry and get flooded. The
-interface between a wet and a dry cell is usually referred to as a
-wet/dry interface \cite{Bollermann2013,Beisiegel2015}.  In
-\cite{Vater20151} the wet/dry interface treatment is described for the
-second order DGFEM. In this work the treatment suitable for the third
-order DGFEM is suggested.
+Many of the aforementioned SWE applications involve wetting and drying
+processes.  For example, coastal simulations involve wave runup and
+overtopping \cite{Vater20151, Medeiros2013, Vater2019}. In
+rainfall-runoff simulations, cells frequently dry out and get flooded
+\cite{Simons2014, Lacasta2014, Xia2017}. Flood simulations feature a
+flood front, which switches cells from dry to wet as it propagates
+through the domain \cite{George2011}.  The interface between a wet and
+a dry cell is usually referred to as a wet/dry interface
+\cite{Bollermann2013, Beisiegel2015} and requires special
+considerations. TODO: 
 
 The mathematical model of shallow water equations contains the source
 terms. The bed slope source term is caused by the bed
 irregularities. This source term is well described in many works like
 \cite{Ambati2007452,Ambati20071233,kesserwani2015,Beisiegel2015,Tassi2007998}.
+
+The proper numerical treatment of these wet/dry interfaces is
+directly related to the crucial properties of (i) mass conservation,
+(ii) C-property, (iii) well-balancedness, (iv) positivity-preserving,
+and (v) shock-capturing.  In order to ensure an accurate solution, the
+numerical scheme must satisfy these properties
+\cite{CaviedesVoullieme2020}.
+
+In recent years, discontinuous Galerkin (DG) methods have gained
+significant interest as a means to numerically solve the SWE
+\cite{CaviedesVoullieme2015, kesserwani2015, Vater20151, Marras:2016,
+  Kesserwani2019, Vater2019, CaviedesVoullieme2020,
+  NavasMontilla2020}.  The DG method uses a local piecewise-polynomial
+representation of the solution, which is driven by fluxes across cell
+interfaces.  Thus, the DG method is locally conservative.  Higher
+order of accuracy is achieved by increasing the polynomial order.
+
+
+In most of these cases wetting and drying processes of the cells occur
+during the simulation, e.g. part of the computational domain may fall
+dry or the domain may start initially dry and get flooded.   In
+\cite{Vater20151} the wet/dry interface treatment is described for the
+second order DGFEM. In this work the treatment suitable for the third
+order DGFEM is suggested.
+
 
 Except for wet/dry interface and bed slope source term, special
 treatment is also needed if the shocks and discontinuities are present
