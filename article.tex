@@ -65,34 +65,41 @@
 }
 % Insert Author names, affiliations and corresponding author email.
 \\
-Martin Fi\v{s}er$^{1,\ast}$,
+
+Martin Fi\v{s}er$^{1,\ast}$, Ilhan \"Ozgen-Xian$^2$, Adri\'an
+Navas-Montilla$^3$, (add other authors as fit)
 
 
-1 NTIS - New Technologies for the Information Society, Faculty of Applied Sciences,
-University of West Bohemia, Pilsen, Czech Republic
+$^1$NTIS - New Technologies for the Information Society, Faculty of
+Applied Sciences, University of West Bohemia, Pilsen, Czech Republic
 
+$^2$EESA, Lawrence Berkeley National Laboratory, Berkeley, California,
+USA
 
-$\ast$ E-mail: martin.fischer1415@gmail.com
+$^3$Centro Universitario de la Defensa, Universidad de Zaragoza,
+Zaragoza, Arag\'on, Spain
+
+$^\ast$E-mail: martin.fischer1415@gmail.com
 \end{flushleft}
 
 %\linenumbers
 
 \section*{Abstract} 
 
-This paper presents a novel limiting method for discontinuous Galerkin method im-
-plemented for shallow water models and the third order accurate schemes. This novel
-method defines ’troubled cells’, which have to be limited, accordingly to the shape of the approximating functions rather then 
-comparing the discontinuity with any arbitrary constant.  In the paper there is also suc-
-cessfully implemented wet/dry interface treatment which ensures non-negativity of the
-water depth and surface gradient method. The limiting criterion uses surface gradient method for water depth limiting.
-The second order accurate Runge-Kutta method is used for the time integration. The
-novel method is tested by well-known computational benchmarks for which an analytical
-solution can be derived.
+This paper presents a third-order discontinuous Galerkin method for
+the shallow water equations with a novel limiting method to ensure
+stability.  This method limits the solution in so-called ``troubled
+cells'', which are detected based on the shape of the approximating
+functions.  We further present a numerical treatment of wet/dry
+interfaces to ensure positive water depths.  The well-balanced
+property of the scheme is preserved through the surface gradient
+method.  The scheme is compared with analytical solutions in several
+computational test cases to verify its properties.
 
 \section*{Keywords}
 
-shallow water equations, wet/dry interface, HLL scheme, 
-uneven bed, discontinuous Galerkin method, limiting process, bed slope source term
+shallow water equations, wet/dry interface, HLL scheme, uneven bed,
+discontinuous Galerkin method, limiting process, bed slope source term
 
 \input{introduction}
 \input{govEqn}

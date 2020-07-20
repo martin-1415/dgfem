@@ -1,76 +1,95 @@
 \section{Introduction}
 
-Environmental and geophysical flow modeling commonly relies on the
-numerical solution of the depth-averaged shallow water equations
-(SWE).  While finite volume discretizations with Godunov-type
-numerical fluxes are currently favored for solving the SWE---see, for
-example, \cite{Mugler2011, George2011, Lacasta2014, Hou2013,
-  Simons2014, Echeverribar2019, Xia2019}, there has been significant
-effort put into developing discontinuous Galerkin finite element
-(DGFEM) discretizations, for example, \cite{CaviedesVoullieme2015,
-  kesserwani2015, Kesserwani2019, Vater20151, Vater2019,
-  CaviedesVoullieme2020, NavasMontilla2020}.
+The study and prediction of environmental and geophysical flow
+processes requires knowledge of the spatially and temporally varying
+flow field.  Large scale, predominantly horizontal flow fields in such
+application fields are usually computed through the numerical solution
+of the depth-integrated shallow water equations (SWE).  For example,
+SWE-based models are used for tsunami and coastal inundation
+predictions in \cite{Marras:2016, Vater2019, Qin:2019}, flood
+predictions \cite{George2011, Echeverribar2019}, and river hydraulics
+\cite{Persi:2019}.  More recently, the SWE have been used in
+rainfall-runoff studies in small natural catchments \cite{Mugler2011,
+  Lacasta2014, Simons2014, Xia2019, CaviedesVoullieme2020}.
 
-Many realistic SWE applications involve wetting and drying processes,
-for example coastal simulations may involve wave runup and overtopping
-\cite{Vater20151, Medeiros2013, Vater2019}, rainfall-runoff
-simulations involve very small water depths and cells frequently dry
-out and get flooded \cite{Simons2014, Lacasta2014, Xia2017}, and urban
-flood simulations involve advancing wet--dry fronts \cite{George2011}.
-The proper numerical treatment of these wet--dry interfaces is
-directly related to crucial properties, which according to
-\cite{CaviedesVoullieme2020} must be satisfied by the numerical scheme
-in order to ensure an accurate solution.  These properties are (i)
-mass conservation, (ii) C-property, (iii) well-balancedness, (iv)
-positivity-preserving, and (v) shock-capturing.
+Many of the aforementioned SWE applications involve wetting and drying
+processes.  For example, coastal simulations involve wave runup and
+overtopping \cite{Vater20151, Medeiros2013, Vater2019}. In
+rainfall-runoff simulations, cells frequently dry out and get flooded
+\cite{Simons2014, Lacasta2014, Xia2017}. Flood simulations feature a
+flood front, which switches cells from dry to wet as it propagates
+through the domain \cite{George2011}.  The interface between a wet and
+a dry cell is usually referred to as a wet/dry interface
+\cite{Bollermann2013, Beisiegel2015} and requires special
+considerations.  Many treatments in the literature rely on
+slope-limiter techniques \cite{Beisiegel2015, Vater20151, Vater2019,
+  Le:2020}.  Other treatments include front-tracking \cite{ref1,
+  Ambati2007452}, linear scaling of high order coefficients around the
+cell average to ensure positivity of water depth \cite{xing2010,
+  Marras:2016}, and thin layer techniques \cite{ern2008, cotoJe,
+  Lee:2016}. Another interesting treatment is shown in
+\cite{Karna:2011}, where negative water depths are addressed by
+adapting the bottom elevation.
 
-In most of these cases wetting and drying processes of the cells occur
-during the simulation, e.g. part of the computational domain may fall
-dry or the domain may start initially dry and get flooded. The
-interface between a wet and a dry cell is usually referred to as a
-wet/dry interface \cite{Bollermann2013,Beisiegel2015}.  In
-\cite{Vater20151} the wet/dry interface treatment is described for the
-second order DGFEM. In this work the treatment suitable for the third
-order DGFEM is suggested.
+Another numerical issue arises in realistic SWE applications due to
+rough topography.  In the mathematical model of the SWE, the
+topography is accounted for through a bed slope source term
+\cite{Kesserwani2013}.  If fluxes and source terms are not carefully
+balanced, the numerical scheme is unable to maintain equilibrium
+states.  The most relevant equilibrium condition is the so-called
+``lake-at-rest'' equilibrium \cite{bermude2}.  Many numerical
+treatments that address this issue have been proposed in the
+literature, especially in the finite volume framework.  For example,
+the hydrostatic reconstruction \cite{audusse}, the surface gradient
+method \cite{zhou}, the f-wave solvers \cite{George:2008,
+  LeVeque:2011}, the path-conservative approaches \cite{Gosse:2001,
+  LeVeque:2011}, and the augmented solvers \cite{NavasMontilla2020},
+among many others.
 
-The mathematical model of shallow water equations contains the source
-terms. The bed slope source term is caused by the bed
-irregularities. This source term is well described in many works like
-\cite{Ambati2007452,Ambati20071233,kesserwani2015,Beisiegel2015,Tassi2007998}.
+In this work, we develop a robust, third-order accurate discontinuous
+Galerkin (DG) method with a novel stability criterion. In recent
+years, DG methods have gained significant interest as a means to
+numerically solve the SWE \cite{CaviedesVoullieme2015, kesserwani2015,
+  Vater20151, Marras:2016, Kesserwani2019, Vater2019,
+  CaviedesVoullieme2020, NavasMontilla2020}.  The DG method uses a
+local piecewise-polynomial representation of the solution, which is
+driven by fluxes across cell interfaces.  Thus, the DG method is
+locally conservative.  Higher order of accuracy is achieved by
+increasing the polynomial order.  Such high order schemes require
+additional numerical treatment to prevent them from producing
+non-physical oscillations.
 
-Except for wet/dry interface and bed slope source term, special
-treatment is also needed if the shocks and discontinuities are present
-in the computational domain. High order accuracy schemes have to be
-limited to prevent them from the appearance of non-physical
-oscillations. In the theory of the finite volume method with linear
-reconstruction of the conservative variables, some TVD-minmod limiter
-restricts the variation of the local slope of the linear approximation
-with respect to the upstream and downstream gradients. This is
-referred to as a global limiting process. Accordingly to
-\cite{krivodonova2004,shu2005} this global limiting approach leads to
-the loss of accuracy. Thus the limiter is used only in 'troubled'
-cells. In \cite{krivodonova2004} the discontinuity detection scheme
-was used to define these cells. The same criterion was used in
-\cite{Ambati2007452}. In \cite{kesserwani2015}, Kesserwani added the
-criterion of monotonicity of the solution. Disadvantage of the
-discontinuity criterion is the definition of the discontinuity
-itself. Discontinuity in the solution is compared with a predefined
-constant which defines the 'troubled' cells. Unfortunately this
-constant can be arbitrarily large and depends on the study case.
-Within this work we suggest novel criterion of defining 'troubled'
-cells. This criterion is based on the shape of the solution in the
-finite element cell and not depends on any constant.
+A well-known approach in the theory of higher order finite volume and
+finite difference methods is the use of slope limiters to ensure that
+the resulting scheme is total variation diminishing (TVD)---that is to
+say that the total variation of the solution decreases in a monotonic
+way \cite{leveque2}.  As globally applying slope limiters to the
+solution leads to loss of accuracy, limiters are usually applied only
+in so-called ``troubled cells'' \cite{krivodonova2004, shu2005}.
+However, the detection of troubled cells is not trivial.  In
+\cite{Ambati2007452, krivodonova2004}, troubled cells are detected
+based on the magnitude of the discontinuity. The criterion is enhanced
+in \cite{kesserwani2015} by using a monotonicity condition.  The
+disadvantage of this discontinuity criterion is that the discontinuity
+in the solution is compared with a predefined constant to detect the
+troubled cells. However, the value of this constant seems to depend on
+the study case.  Other approaches to ensure stability are, for
+example, limiting-dissipation operators \cite{JAFFRE1995,
+  Ambati2007452} and artificial viscosity \cite{cesenek2013,
+  bublik2011, Bublik2015329}.
 
-In the 'troubled' cells the limiting process is implemented. In
-\cite{JAFFRE1995,Ambati2007452}, the limiting-dissipation operator was
-used to limit the numerical solution. Artificial viscosity was used
-for example in \cite{cesenek2013, bublik2011,Bublik2015329}. Within
-this work, the process described in \cite{Cockburn1989b} is used. The
-solution is limited by decreasing of the order of accuracy to the
-second order. This second order solution was then limited by minmod
-limiter. Finite volume limiters were also adopted in \cite{yang2009}.
+In this work, we propose a novel criterion to detect troubled cells.
+This criterion is based on the shape of the solution in the cell and
+does not require any user-specified constant.  In the detected
+troubled cells, we apply the strategy from \cite{Cockburn1989b}, where
+the solution's accuracy is decreased to second order and then further
+limited using a minmod-limiter.  Equilibria are preserved through the
+surface gradient method \cite{zhou}.  Wet/dry interfaces are treated
+following the positivity preserving reconstruction in \cite{kurg2}.
 
-The novel criterion of defining 'troubled' cells and wet/dry interface
-treatment are tested and validated by the classical benchmarks and
-compared by other numerical methods and analytical solutions at the
-end of this paper.
+The rest of the paper is structured as follows.  Firstly, we present
+the governing equations and the DG method.  This is followed by a
+presentation of the novel criterion to detect troubled cells and
+discussions of the surface gradient method and the wet/dry interface
+treatment.  The resulting scheme is tested in a set of benchmarks.
+Finally, conclusions are given.
