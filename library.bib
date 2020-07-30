@@ -4214,3 +4214,93 @@ volume = {200},
 pages = {509--524},
 year = {2011}
 }
+
+
+@article{WINTERMEYER2018,
+title = "An entropy stable discontinuous Galerkin method for the shallow water equations on curvilinear meshes with wet/dry fronts accelerated by GPUs",
+journal = "Journal of Computational Physics",
+volume = "375",
+pages = "447 - 480",
+year = "2018",
+issn = "0021-9991",
+doi = "https://doi.org/10.1016/j.jcp.2018.08.038",
+url = "http://www.sciencedirect.com/science/article/pii/S0021999118305692",
+author = "Niklas Wintermeyer and Andrew R. Winters and Gregor J. Gassner and Timothy Warburton",
+keywords = "Shallow water equations, Discontinuous Galerkin spectral element method, Shock capturing, Positivity preservation, GPUs, OCCA",
+abstract = "We extend the entropy stable high order nodal discontinuous Galerkin spectral element approximation for the non-linear two dimensional shallow water equations presented by Wintermeyer et al. (2017) [46] with a shock capturing technique and a positivity preservation capability to handle dry areas. The scheme preserves the entropy inequality, is well-balanced and works on unstructured, possibly curved, quadrilateral meshes. For the shock capturing, we introduce an artificial viscosity to the equations and prove that the numerical scheme remains entropy stable. We add a positivity preserving limiter to guarantee non-negative water heights as long as the mean water height is non-negative. We prove that non-negative mean water heights are guaranteed under a certain additional time step restriction for the entropy stable numerical interface flux. We implement the method on GPU architectures using the abstract language OCCA, a unified approach to multi-threading languages. We show that the entropy stable scheme is well suited to GPUs as the necessary extra calculations do not negatively impact the runtime up to reasonably high polynomial degrees (around N=7). We provide numerical examples that challenge the shock capturing and positivity properties of our scheme to verify our theoretical findings."
+}
+
+
+@article{MANZANERO2020,
+title = "Entropy–stable discontinuous Galerkin approximation with summation–by–parts property for the incompressible Navier–Stokes/Cahn–Hilliard system",
+journal = "Journal of Computational Physics",
+volume = "408",
+pages = "109363",
+year = "2020",
+issn = "0021-9991",
+doi = "https://doi.org/10.1016/j.jcp.2020.109363",
+url = "http://www.sciencedirect.com/science/article/pii/S0021999120301376",
+author = "Juan Manzanero and Gonzalo Rubio and David A. Kopriva and Esteban Ferrer and Eusebio Valero",
+keywords = "Navier–Stokes, Cahn–Hilliard, Computational fluid dynamics, High-order methods, Discontinuous Galerkin, SBP–SAT",
+abstract = "We develop an entropy–stable two–phase incompressible Navier–Stokes/Cahn–Hilliard discontinuous Galerkin (DG) flow solver method. The model poses the Cahn–Hilliard equation as the phase field method, a skew–symmetric form of the momentum equation, and an artificial compressibility method to compute the pressure. We design the model so that it satisfies an entropy law, including free– and no–slip wall boundary conditions with non–zero wall contact angle. We then construct a high–order DG approximation of the model that satisfies the summation–by–parts simultaneous–approximation–term property. With the help of a discrete stability analysis, the scheme has two modes: an entropy–conserving approximation with central advective fluxes and the Bassi–Rebay 1 (BR1) method for diffusion, and an entropy–stable approximation with an exact Riemann solver for advection and interface stabilization added to the BR1 method. The scheme is applicable to, and the stability proofs hold for, three–dimensional unstructured meshes with curvilinear hexahedral elements. We test the convergence of the schemes on a manufactured solution, and their robustness by solving a flow initialized from random numbers. In the latter, we find that a similar scheme that does not satisfy an entropy inequality had 30% probability to fail, while the entropy–stable scheme never does. We also solve the static and rising bubble test problems, and to challenge the solver capabilities we compute a three–dimensional pipe flow in the annular regime."
+}
+
+
+@article{GASSNER2016,
+title = "A well balanced and entropy conservative discontinuous Galerkin spectral element method for the shallow water equations",
+journal = "Applied Mathematics and Computation",
+volume = "272",
+pages = "291 - 308",
+year = "2016",
+note = "Recent Advances in Numerical Methods for Hyperbolic Partial Differential Equations",
+issn = "0096-3003",
+doi = "https://doi.org/10.1016/j.amc.2015.07.014",
+url = "http://www.sciencedirect.com/science/article/pii/S0096300315009261",
+author = "Gregor J. Gassner and Andrew R. Winters and David A. Kopriva",
+keywords = "Skew-symmetric shallow water equations, Discontinuous Galerkin spectral element method, Gauss–Lobatto Legendre, Summation-by-parts, Entropy conservation, Well balanced",
+abstract = "In this work, we design an arbitrary high order accurate nodal discontinuous Galerkin spectral element type method for the one dimensional shallow water equations. The novel method uses a skew-symmetric formulation of the continuous problem. We prove that this discretisation exactly preserves the local mass and momentum. Furthermore, we show that combined with a special numerical interface flux function, the method exactly preserves the entropy, which is also the total energy for the shallow water equations. Finally, we prove that the surface fluxes, the skew-symmetric volume integrals, and the source term are well balanced. Numerical tests are performed to demonstrate the theoretical findings."
+}
+
+@article{GASSNER20162,
+title = "Split form nodal discontinuous Galerkin schemes with summation-by-parts property for the compressible Euler equations",
+journal = "Journal of Computational Physics",
+volume = "327",
+pages = "39 - 66",
+year = "2016",
+issn = "0021-9991",
+doi = "https://doi.org/10.1016/j.jcp.2016.09.013",
+url = "http://www.sciencedirect.com/science/article/pii/S0021999116304259",
+author = "Gregor J. Gassner and Andrew R. Winters and David A. Kopriva",
+keywords = "Ducros splitting, Kennedy and Gruber splitting, Kinetic energy, Discontinuous Galerkin spectral element method, 3D compressible Euler equations, Taylor–Green vortex, Split form",
+abstract = "Fisher and Carpenter (2013) [12] found a remarkable equivalence of general diagonal norm high-order summation-by-parts operators to a subcell based high-order finite volume formulation. This equivalence enables the construction of provably entropy stable schemes by a specific choice of the subcell finite volume flux. We show that besides the construction of entropy stable high-order schemes, a careful choice of subcell finite volume fluxes generates split formulations of quadratic or cubic terms. Thus, by changing the subcell finite volume flux to a specific choice, we are able to generate, in a systematic way, all common split forms of the compressible Euler advection terms, such as the Ducros splitting and the Kennedy and Gruber splitting. Although these split forms are not entropy stable, we present a systematic way to prove which of those split forms are at least kinetic energy preserving. With this, we construct a unified high-order split form DG framework. We investigate with three dimensional numerical simulations of the inviscid Taylor–Green vortex and show that the new split forms enhance the robustness of high-order simulations in comparison to the standard scheme when solving turbulent vortex dominated flows. In fact, we show that for certain test cases, the novel split form discontinuous Galerkin schemes are more robust than the discontinuous Galerkin scheme with over-integration."
+}
+
+
+
+@article{xing2006,
+title = "High-Order Well-Balanced Finite Difference WENO Schemes for a Class of Hyperbolic Systems with Source Terms",
+journal = "Journal of Scientific Computing",
+volume = "27",
+pages = "447 - 494",
+year = "2006",
+author = "Xing, Yulong and Shu, Chi-Wang"
+}
+
+
+
+
+@article{CALEFFI2016,
+title = "A comparison between bottom-discontinuity numerical treatments in the DG framework",
+journal = "Applied Mathematical Modelling",
+volume = "40",
+number = "17",
+pages = "7516 - 7531",
+year = "2016",
+issn = "0307-904X",
+doi = "https://doi.org/10.1016/j.apm.2015.09.025",
+url = "http://www.sciencedirect.com/science/article/pii/S0307904X15005594",
+author = "Valerio Caleffi and Alessandro Valiani and Gang Li",
+keywords = "Bottom steps, Discontinuous Galerkin, Path-conservative schemes, Shallow water equations",
+abstract = "In this work, using an unified framework consisting in third-order accurate discontinuous Galerkin schemes, we perform a comparison between five different numerical approaches to the free-surface shallow flow simulation on bottom steps. Together with the study of the overall impact that such techniques have on the numerical models we highlight the role that the treatment of bottom discontinuities plays in the preservation of specific asymptotic conditions. In particular, we consider three widespread approaches that perform well if the motionless steady state has to be preserved and two approaches (one previously conceived by the first two authors and one original) which are also promising for the preservation of a moving-water steady state. Several one-dimensional test cases are used to verify the third-order accuracy of the models in simulating an unsteady flow, the behavior of the models for a quiescent flow in the cases of both continuous and discontinuous bottom, and the good resolution properties of the schemes. Moreover, specific test cases are introduced to show the behavior of the different approaches when a bottom step interact with both steady and unsteady moving flows."
+}
+
